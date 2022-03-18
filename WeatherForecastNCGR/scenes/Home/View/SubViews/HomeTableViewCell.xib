@@ -72,7 +72,7 @@
             <connections>
                 <outlet property="cityNameLabel" destination="B9M-tB-aUd" id="GQy-dD-BaD"/>
                 <outlet property="parentStackView" destination="pBd-xD-IJA" id="RcE-Ke-b40"/>
-                <outlet property="timeLabel" destination="B9M-tB-aUd" id="uBg-26-Oab"/>
+                <outlet property="timeLabel" destination="kMI-j4-qsf" id="sft-qX-k95"/>
                 <outlet property="weatherDegreeLabel" destination="r7v-lu-C8m" id="joB-ia-Axg"/>
                 <outlet property="weatherIcon" destination="iTi-Sh-xAf" id="Txf-Wx-HkC"/>
             </connections>

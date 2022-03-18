@@ -53,6 +53,8 @@
 		B5898F5F27E499FF0054A59C /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5898F5D27E499FF0054A59C /* HomeTableViewCell.xib */; };
 		B5898F6127E49D9F0054A59C /* LoadImageManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F6027E49D9F0054A59C /* LoadImageManger.swift */; };
 		B5898F6327E4B2280054A59C /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F6227E4B2280054A59C /* InternetConnection.swift */; };
+		B5898F6727E4BB8A0054A59C /* DaysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5898F6527E4BB8A0054A59C /* DaysTableViewCell.xib */; };
+		B5898F6827E4BB8A0054A59C /* DaysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F6627E4BB8A0054A59C /* DaysTableViewCell.swift */; };
 		E85184D89E6D17D89BF664DB /* Pods_WeatherForecastNCGRTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E390B8F8530030154DAE4C61 /* Pods_WeatherForecastNCGRTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +127,8 @@
 		B5898F5D27E499FF0054A59C /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		B5898F6027E49D9F0054A59C /* LoadImageManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageManger.swift; sourceTree = "<group>"; };
 		B5898F6227E4B2280054A59C /* InternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
+		B5898F6527E4BB8A0054A59C /* DaysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DaysTableViewCell.xib; sourceTree = "<group>"; };
+		B5898F6627E4BB8A0054A59C /* DaysTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysTableViewCell.swift; sourceTree = "<group>"; };
 		B6EEA4D11738E338BB9FE71D /* Pods_WeatherForecastNCGR_WeatherForecastNCGRUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherForecastNCGR_WeatherForecastNCGRUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB999348509921012F91F4B0 /* Pods-WeatherForecastNCGR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastNCGR.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecastNCGR/Pods-WeatherForecastNCGR.debug.xcconfig"; sourceTree = "<group>"; };
 		C80F467EF36F13BF38B8D18A /* Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.release.xcconfig"; path = "Target Support Files/Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests/Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -460,6 +464,7 @@
 		B5898F2F27E484AA0054A59C /* Days View */ = {
 			isa = PBXGroup;
 			children = (
+				B5898F6427E4BB720054A59C /* sub View */,
 				B5898F3027E484AA0054A59C /* DaysViewController.xib */,
 				B5898F3127E484AA0054A59C /* DaysViewController.swift */,
 			);
@@ -489,6 +494,15 @@
 				B5898F5D27E499FF0054A59C /* HomeTableViewCell.xib */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		B5898F6427E4BB720054A59C /* sub View */ = {
+			isa = PBXGroup;
+			children = (
+				B5898F6627E4BB8A0054A59C /* DaysTableViewCell.swift */,
+				B5898F6527E4BB8A0054A59C /* DaysTableViewCell.xib */,
+			);
+			path = "sub View";
 			sourceTree = "<group>";
 		};
 		C9B0EDD4302A2DF56CC887B0 /* Pods */ = {
@@ -615,6 +629,7 @@
 			files = (
 				B5898EDA27E483CC0054A59C /* LaunchScreen.storyboard in Resources */,
 				B5898F5F27E499FF0054A59C /* HomeTableViewCell.xib in Resources */,
+				B5898F6727E4BB8A0054A59C /* DaysTableViewCell.xib in Resources */,
 				B5898ED727E483CC0054A59C /* Assets.xcassets in Resources */,
 				B5898F4127E484AA0054A59C /* HomeViewController.xib in Resources */,
 				B5898F5527E486170054A59C /* Main.storyboard in Resources */,
@@ -763,6 +778,7 @@
 				B5898F5227E484AA0054A59C /* DaysModel.swift in Sources */,
 				B5898F4D27E484AA0054A59C /* DetailsViewController.swift in Sources */,
 				B5898F4E27E484AA0054A59C /* DetailsViewModel.swift in Sources */,
+				B5898F6827E4BB8A0054A59C /* DaysTableViewCell.swift in Sources */,
 				B5898F4B27E484AA0054A59C /* DetailsModel.swift in Sources */,
 				B5898ED027E483CA0054A59C /* SceneDelegate.swift in Sources */,
 				B5898F3827E484AA0054A59C /* WeathetDaysEndpointSpecifications.swift in Sources */,

@@ -6,12 +6,18 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 class DaysViewModel {
     
-    var cityId: String = ""
+    var daysModel: BehaviorSubject<HomeResponseModel?> = BehaviorSubject(value: nil)
+    var daysDetailsModel: BehaviorSubject<[ConsolidatedWeather]> = BehaviorSubject(value: [])
     
-    init(cityId: String) {
-        self.cityId = cityId
+    init(homeResponseModel: HomeResponseModel) {
+        self.daysModel.onNext(homeResponseModel)
+        if homeResponseModel.consolidatedWeather != nil {
+            self.daysDetailsModel.onNext(homeResponseModel.consolidatedWeather!)
+        }
     }
 }

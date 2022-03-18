@@ -15,7 +15,7 @@ protocol HomeRouterProtocol {
 
 class HomeRouter: HomeRouterProtocol {
     enum HomeRoute {
-        case days(cityId: String)
+        case days(homeResponseModel: HomeResponseModel)
     }
 
     typealias DataType = HomeViewData
@@ -44,13 +44,13 @@ class HomeRouter: HomeRouterProtocol {
     
     func navigateTo(_ route: HomeRoute) {
         switch route {
-        case .days(let cityId):
-            navigateToDays(cityId: cityId)
+        case .days(let homeResponseModel):
+            navigateToDays(homeResponseModel: homeResponseModel)
         }
     }
                            
-    private func navigateToDays(cityId: String) {
-        let daysController = DaysViewController(cityId: cityId)
+    private func navigateToDays(homeResponseModel: HomeResponseModel) {
+        let daysController = DaysViewController(homeResponseModel: homeResponseModel)
         viewController?.navigationController?.pushViewController(daysController, animated: true)
     }
 }

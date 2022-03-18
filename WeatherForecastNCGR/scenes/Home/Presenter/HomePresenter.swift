@@ -64,7 +64,7 @@ class HomePresenter: HomePresenterProtocol {
     
     func navigatToCityDate(indexRow: Int) {
         if let homeWeathers = homeWeathers, homeWeathers.count > indexRow {
-            router?.navigateTo(.days(cityId: String(homeWeathers[indexRow].woeid ?? 0)))
+            router?.navigateTo(.days(homeResponseModel: homeWeathers[indexRow]))
         }
     }
     
