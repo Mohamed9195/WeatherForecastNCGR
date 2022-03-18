@@ -49,6 +49,35 @@ class DefaultHomeModelManger: StoreMangerProtocol {
     }
 }
 
+class DefaultDetailsDayModelManger: StoreMangerProtocol {
+    func save(file: Any) {
+        if let data = file as? [DayResponseModel] {
+            let encoder = JSONEncoder()
+            let objectData = try? encoder.encode(data)
+            UserDefaults.standard.setValue(objectData, forKey: "DetailsResponseModel")
+            UserDefaults.standard.synchronize()
+        }
+    }
+    
+    func Edit(file: Any) {
+        
+    }
+    
+    func delete(file: Any) {
+        
+    }
+    
+    func get() -> Any? {
+        let userObject = UserDefaults.standard.data(forKey: "DetailsResponseModel")
+        if userObject != nil {
+            let currentUser = try? JSONDecoder().decode([DayResponseModel].self, from: userObject!)
+            return currentUser
+        } else {
+            return nil
+        }
+    }
+}
+
 class DefaultCityModelManger {
     
     func getCity() -> [String]? {

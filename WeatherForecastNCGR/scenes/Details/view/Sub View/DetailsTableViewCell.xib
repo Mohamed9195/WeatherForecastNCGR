@@ -18,7 +18,7 @@
                 <subviews>
                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BoE-ay-CsR">
                         <rect key="frame" x="4" y="4" width="312" height="292"/>
-                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="0.31023017727598851" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="0.19967807069116708" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="292" id="bjx-7k-3EK"/>
                         </constraints>
@@ -28,6 +28,7 @@
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="BoE-ay-CsR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="0lv-Hk-Moq"/>
                     <constraint firstItem="BoE-ay-CsR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="4" id="b67-E0-5oe"/>
@@ -36,6 +37,7 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="detailsTextField" destination="BoE-ay-CsR" id="PfV-87-vyM"/>
             </connections>

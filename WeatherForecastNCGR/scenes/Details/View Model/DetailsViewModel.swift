@@ -29,7 +29,11 @@ class DetailsViewModel: DaysServicesDelegate {
             if connectionStatus == .connected {
                 self.weatherDetailsEndPoints.getDay(cityId: cityId, day: date)
             } else {
-                self.error.onNext("no internet connection")
+                if let cachedModel = DefaultDetailsDayModelManger().get() as? [DayResponseModel] {
+                    self.dayDetails.onNext(cachedModel)
+                } else {
+                    self.error.onNext("no internet connection")
+                }
             }
         }
     }
@@ -39,6 +43,7 @@ class DetailsViewModel: DaysServicesDelegate {
     }
     
     func didGetDay(city: [DayResponseModel]) {
+        DefaultDetailsDayModelManger().save(file: city as [DayResponseModel])
         dayDetails.onNext(city)
     }
 }
