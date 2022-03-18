@@ -40,7 +40,16 @@ class HomePresenter: HomePresenterProtocol {
             if connectionStatus == .connected {
                 self.interactor?.getHome(cityId: CityName.cairo.rawValue)
             } else {
-                self.view?.didGetHomeWithError(error: "no internet connection")
+                if let cachedModel = DefaultHomeModelManger().get() as? [HomeResponseModel] {
+                    self.homeWeathers = cachedModel
+                    self.cityNames.insert(.cairo)
+                    self.cityNames.insert(.riyadh)
+                    self.cityNames.insert(CityName.nY)
+                    self.view?.stopLoader()
+                    self.view?.didGetHome()
+                } else {
+                    self.view?.didGetHomeWithError(error: "no internet connection")
+                }
             }
         }
     }
@@ -83,8 +92,16 @@ extension HomePresenter: HomeInteractorOutputProtocol {
         homeWeathers?.removeAll()
         cityNames.removeAll()
         cityNames.insert(.cairo)
-        // add data cached if found
-        view?.didGetHomeWithError(error: error?.localizedDescription)
+        if let cachedModel = DefaultHomeModelManger().get() as? [HomeResponseModel] {
+            homeWeathers = cachedModel
+            cityNames.insert(.cairo)
+            cityNames.insert(.riyadh)
+            cityNames.insert(CityName.nY)
+            view?.stopLoader()
+            view?.didGetHome()
+        } else {
+            view?.didGetHomeWithError(error: error?.localizedDescription)
+        }
     }
     
     func didGetHome(city: HomeResponseModel) {
@@ -99,6 +116,7 @@ extension HomePresenter: HomeInteractorOutputProtocol {
         case 3:
             view?.stopLoader()
             view?.didGetHome()
+            homeWeathers != nil ? DefaultHomeModelManger().save(file: homeWeathers! as [HomeResponseModel]) : ()
         default: break
         }
     }
