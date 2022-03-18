@@ -31,4 +31,5 @@ protocol HomePresenterOutputProtocol: AnyObject {
     func didGetHome()
     func startLoader()
     func stopLoader()
+    func reloadView()
 }

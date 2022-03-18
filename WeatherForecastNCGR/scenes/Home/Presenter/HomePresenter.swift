@@ -37,6 +37,7 @@ class HomePresenter: HomePresenterProtocol {
         cityNames.removeAll()
         cityNames.insert(.cairo)
         self.view?.startLoader()
+        self.view?.reloadView()
         
         InternetConnection.shared.startListening { connectionStatus in
             if connectionStatus == .connected {
@@ -84,8 +85,10 @@ class HomePresenter: HomePresenterProtocol {
     }
     
     func saveNewCity(name: String) {
-        view?.startLoader()
-        interactor?.addNewCity(name: name)
+        if name.count > 0 {
+            view?.startLoader()
+            interactor?.addNewCity(name: name)
+        }
     }
     
     func getCachedCity() -> [String]? {
@@ -112,27 +115,32 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     }
     
     func didGetHome(city: HomeResponseModel) {
-        homeWeathers?.append(city)
+        
         switch cityNames.count {
         case 1:
             self.cityNames.insert(.nY)
+            homeWeathers?.append(city)
             interactor?.getHome(cityId: CityName.nY.rawValue)
         case 2:
             self.cityNames.insert(.riyadh)
+            homeWeathers?.append(city)
             interactor?.getHome(cityId: CityName.riyadh.rawValue)
         case 3:
             if let cachedCity = getCachedCity() {
-                cachedCity.forEach { city in
+                homeWeathers?.append(city)
+                cachedCity.forEach { cityId in
                     self.cityNames.insert(.other)
-                    interactor?.getHome(cityId: city)
+                    interactor?.getHome(cityId: cityId)
                 }
             } else {
+                homeWeathers?.append(city)
                 view?.stopLoader()
                 view?.didGetHome()
                 homeWeathers != nil ? DefaultHomeModelManger().save(file: homeWeathers! as [HomeResponseModel]) : ()
             }
             
         default:
+            homeWeathers?.append(city)
             view?.stopLoader()
             view?.didGetHome()
             homeWeathers != nil ? DefaultHomeModelManger().save(file: homeWeathers! as [HomeResponseModel]) : ()
@@ -140,19 +148,21 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     }
     
     func cityId(id: String) {
-        if var oldCity = UserDefaults.standard.object(forKey: "NewCity") as? [String] {
-            if !oldCity.contains(where: { $0 == id }) {
-                oldCity.append(id)
-            }
-            UserDefaults.standard.set(oldCity, forKey: "NewCity")
-        } else {
-            UserDefaults.standard.set([id], forKey: "NewCity")
-        }
         view?.stopLoader()
-        view?.didGetHome()
+        if var oldCity = UserDefaults.standard.object(forKey: "NewCity") as? [String] {
+            if !oldCity.contains(where: { $0 == id }), id != "0" {
+                oldCity.append(id)
+                UserDefaults.standard.set(oldCity, forKey: "NewCity")
+                viewWillAppear()
+            }
+        } else if id != "0"  {
+            UserDefaults.standard.set([id], forKey: "NewCity")
+            viewWillAppear()
+        }
     }
     
     func cityIdError(error: Error?) {
+        view?.stopLoader()
         view?.didGetHomeWithError(error: "can not found city")
     }
 }

@@ -104,6 +104,10 @@ extension HomeViewController: HomePresenterOutputProtocol, UITextFieldDelegate {
         return true
     }
     
+    func reloadView() {
+        weatherCityTableView.reloadData()
+    }
+    
     func didGetHomeWithError(error: String?) {
         refresher.endRefreshing()
         WeatherAlert.genericErrorAlert(error: error ?? "")
