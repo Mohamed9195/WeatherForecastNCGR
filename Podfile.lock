@@ -1,0 +1,61 @@
+PODS:
+  - Alamofire (5.5.0)
+  - IQKeyboardManagerSwift (6.5.9)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - PKHUD (5.3.0)
+  - Realm (10.24.1):
+    - Realm/Headers (= 10.24.1)
+  - Realm/Headers (10.24.1)
+  - RxCocoa (5.1.3):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.3):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.3)
+  - SDWebImage (5.12.5):
+    - SDWebImage/Core (= 5.12.5)
+  - SDWebImage/Core (5.12.5)
+  - SkeletonView (1.29.2)
+
+DEPENDENCIES:
+  - IQKeyboardManagerSwift (~> 6.5)
+  - Moya/RxSwift (~> 14.0)
+  - PKHUD
+  - Realm (~> 10.24)
+  - RxCocoa
+  - RxSwift
+  - SDWebImage (~> 5.11)
+  - SkeletonView
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - Moya
+    - PKHUD
+    - Realm
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SDWebImage
+    - SkeletonView
+
+SPEC CHECKSUMS:
+  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  IQKeyboardManagerSwift: 6e839c575c4aa1078d58a596e41244e77abe918f
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  Realm: f9bc5a212a9ab084b4ed90cda1c28d835a38a06b
+  RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
+  RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
+  RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
+  SDWebImage: 0905f1b7760fc8ac4198cae0036600d67478751e
+  SkeletonView: 915a80ecc2b6421ab7ac0f0212321c0cc1406472
+
+PODFILE CHECKSUM: 5a926c8427f255e56b317ba9f85ce33da77dd881
+
+COCOAPODS: 1.11.2
