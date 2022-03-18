@@ -92,7 +92,7 @@ class HomePresenter: HomePresenterProtocol {
     }
     
     func getCachedCity() -> [String]? {
-        if let oldCity = UserDefaults.standard.object(forKey: "NewCity") as? [String] {
+        if let oldCity = DefaultCityModelManger().getCity() {
             return oldCity
         } else {
             return nil
@@ -152,11 +152,11 @@ extension HomePresenter: HomeInteractorOutputProtocol {
         if var oldCity = UserDefaults.standard.object(forKey: "NewCity") as? [String] {
             if !oldCity.contains(where: { $0 == id }), id != "0" {
                 oldCity.append(id)
-                UserDefaults.standard.set(oldCity, forKey: "NewCity")
+                DefaultCityModelManger().setNewCity(city: oldCity)
                 viewWillAppear()
             }
         } else if id != "0"  {
-            UserDefaults.standard.set([id], forKey: "NewCity")
+            DefaultCityModelManger().setNewCity(city: [id])
             viewWillAppear()
         }
     }

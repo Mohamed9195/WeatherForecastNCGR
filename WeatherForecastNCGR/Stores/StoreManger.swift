@@ -49,6 +49,17 @@ class DefaultHomeModelManger: StoreMangerProtocol {
     }
 }
 
+class DefaultCityModelManger {
+    
+    func getCity() -> [String]? {
+        UserDefaults.standard.object(forKey: "NewCity") as? [String]
+    }
+    
+    func setNewCity(city: [String]) {
+        UserDefaults.standard.set(city, forKey: "NewCity")
+    }
+}
+
 class RealmStoreManger: StoreMangerProtocol {
     func save(file: Any) {
        
