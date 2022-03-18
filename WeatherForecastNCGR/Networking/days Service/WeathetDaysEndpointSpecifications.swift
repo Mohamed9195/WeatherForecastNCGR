@@ -11,8 +11,7 @@ import Moya
 
 // MARK: - Provider Specifications
 enum WeatherDaysEndpointSpecifications {
-    
-    case test
+    case days(cityId: String, day: String)
 }
 
 // MARK: - Provider target type
@@ -26,14 +25,14 @@ extension WeatherDaysEndpointSpecifications: TargetType {
 
     var path: String {
         switch self {
-        case .test:
-            return ""
+        case .days(let cityId, let day):
+            return "location/\(cityId)/\(day)/"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .test:
+        case .days:
             return .get
         }
     }
@@ -41,8 +40,8 @@ extension WeatherDaysEndpointSpecifications: TargetType {
     // header
     var headers: [String : String]? {
         switch self {
-        case .test:
-            return  ["" : ""]
+        case .days:
+            return  nil
         }
     }
 
@@ -53,8 +52,7 @@ extension WeatherDaysEndpointSpecifications: TargetType {
     var task: Task {
         switch self {
 
-        // send request as by parameter as query
-        case .test:
+        case .days:
             return .requestPlain
         }
     }

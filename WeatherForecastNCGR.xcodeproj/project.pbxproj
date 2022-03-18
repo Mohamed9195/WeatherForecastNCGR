@@ -47,6 +47,7 @@
 		B5898F5227E484AA0054A59C /* DaysModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F3527E484AA0054A59C /* DaysModel.swift */; };
 		B5898F5527E486170054A59C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5898F5327E486160054A59C /* Main.storyboard */; };
 		B5898F5627E486170054A59C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F5427E486170054A59C /* ViewController.swift */; };
+		B5898F5827E486FC0054A59C /* DaysResponceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F5727E486FC0054A59C /* DaysResponceModel.swift */; };
 		E85184D89E6D17D89BF664DB /* Pods_WeatherForecastNCGRTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E390B8F8530030154DAE4C61 /* Pods_WeatherForecastNCGRTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,7 @@
 		B5898F3527E484AA0054A59C /* DaysModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysModel.swift; sourceTree = "<group>"; };
 		B5898F5327E486160054A59C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		B5898F5427E486170054A59C /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B5898F5727E486FC0054A59C /* DaysResponceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysResponceModel.swift; sourceTree = "<group>"; };
 		B6EEA4D11738E338BB9FE71D /* Pods_WeatherForecastNCGR_WeatherForecastNCGRUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherForecastNCGR_WeatherForecastNCGRUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB999348509921012F91F4B0 /* Pods-WeatherForecastNCGR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastNCGR.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecastNCGR/Pods-WeatherForecastNCGR.debug.xcconfig"; sourceTree = "<group>"; };
 		C80F467EF36F13BF38B8D18A /* Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.release.xcconfig"; path = "Target Support Files/Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests/Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			children = (
 				B5898F0327E484A90054A59C /* WeathetDaysEndpointSpecifications.swift */,
 				B5898F0427E484A90054A59C /* WeathetDaysEndPoints.swift */,
+				B5898F5727E486FC0054A59C /* DaysResponceModel.swift */,
 			);
 			path = "days Service";
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				B5898F4927E484AA0054A59C /* HomeViewData.swift in Sources */,
 				B5898F5027E484AA0054A59C /* DaysViewController.swift in Sources */,
 				B5898F3727E484AA0054A59C /* WeatherDetailsEndpointSpecifications.swift in Sources */,
+				B5898F5827E486FC0054A59C /* DaysResponceModel.swift in Sources */,
 				B5898F3627E484AA0054A59C /* WeatherDetailsEndPoints.swift in Sources */,
 				B5898F3927E484AA0054A59C /* WeathetDaysEndPoints.swift in Sources */,
 				B5898F3B27E484AA0054A59C /* HomeEndPoints.swift in Sources */,
