@@ -17,8 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         
         let homeViewController = HomeRouter.createModule(data: nil)
-        homeViewController.view.backgroundColor = .red
-        window?.rootViewController = homeViewController
+        window?.rootViewController = UINavigationController(rootViewController: homeViewController)
         
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()

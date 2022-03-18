@@ -16,8 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         window = UIWindow(frame: UIScreen.main.bounds)
         let homeViewController = HomeRouter.createModule(data: nil)
-        homeViewController.view.backgroundColor = .red
-        window?.rootViewController = homeViewController
+        window?.rootViewController = UINavigationController(rootViewController: homeViewController)
         window?.makeKeyAndVisible()
         
         return true

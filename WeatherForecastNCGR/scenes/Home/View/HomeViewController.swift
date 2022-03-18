@@ -8,7 +8,12 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
+    @IBOutlet weak var loaderView: UIVisualEffectView!
+    @IBOutlet weak var weatherCityTableView: UITableView!
+    
     var presenter: HomePresenterProtocol?
+    var refresher: UIRefreshControl!
     
     // MARK: - Init
     init() {
@@ -37,6 +42,7 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         // Do any additional setup before displaying the view.
         
+        weatherCityTableView.rowHeight = weatherCityTableView.frame.height / 3
         presenter?.viewWillAppear()
     }
     
@@ -60,10 +66,57 @@ class HomeViewController: UIViewController {
     
     /// Setup the UI
     private func setupUI() {
-       
+        title = "weather City"
+        self.refresher = UIRefreshControl()
+        self.refresher.tintColor = .red
+        self.refresher.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        self.weatherCityTableView.addSubview(refresher)
+        weatherCityTableView.register(UINib(nibName: "\(HomeTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.refresher.beginRefreshing()
+        presenter?.viewWillAppear()
     }
 }
 
 extension HomeViewController: HomePresenterOutputProtocol {
+    func didGetHomeWithError(error: String?) {
+        refresher.endRefreshing()
+        WeatherAlert.genericErrorAlert(error: error ?? "")
+    }
+    func didGetHome() {
+        refresher.endRefreshing()
+        weatherCityTableView.reloadData()
+    }
     
+    func startLoader() {
+        loaderView.isHidden = false
+    }
+    func stopLoader() {
+        loaderView.isHidden = true
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        presenter?.getHomeWeatherCount() ?? 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "HomeTableViewCell", for: indexPath) as? HomeTableViewCell else {
+            fatalError()
+        }
+        if let dataModel = presenter?.getHomeWeather(forIndexRow: indexPath.row),
+            let dataCityModel = dataModel.consolidatedWeather?.first,
+           let icon = presenter?.cityIconWeather(indexRow: indexPath.row) {
+            cell.configureUI(model: dataCityModel, cityName: dataModel.title ?? "", icon: icon)
+        }
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        presenter?.navigatToCityDate(indexRow: indexPath.row)
+    }
 }

@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class DaysViewModel {
+    
+    var cityId: String = ""
+    
+    init(cityId: String) {
+        self.cityId = cityId
+    }
+}

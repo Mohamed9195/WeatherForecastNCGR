@@ -17,9 +17,17 @@ protocol HomePresenterProtocol: AnyObject {
     func viewWillAppear()
     func viewDidAppear()
     func viewWillDisappear()
+    
+    func getHomeWeather(forIndexRow: Int) -> HomeResponseModel?
+    func getHomeWeatherCount() -> Int
+    func navigatToCityDate(indexRow: Int)
+    func cityIconWeather(indexRow: Int) -> String
 }
 
 /// Defines the presenter callbacks to view
 protocol HomePresenterOutputProtocol: AnyObject {
-    
+    func didGetHomeWithError(error: String?)
+    func didGetHome()
+    func startLoader()
+    func stopLoader()
 }
