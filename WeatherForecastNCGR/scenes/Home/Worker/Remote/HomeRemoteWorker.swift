@@ -22,6 +22,10 @@ class HomeRemoteWorker: HomeRemoteWorkerProtocol {
     func getHome(cityId: String) {
         homeServiceProtocol?.getHome(cityId: cityId)
     }
+    
+    func addNewCity(name: String) {
+        homeServiceProtocol?.addNewCity(name: name)
+    }
 }
 
 //// MARK: - Service Callbacks
@@ -33,5 +37,12 @@ extension HomeRemoteWorker: HomeServicesDelegate {
     
     func didGetHome(city: HomeResponseModel) {
         interactor?.didGetHome(city: city)
+    }
+    
+    func cityId(id: String) {
+        interactor?.cityId(id: id)
+    }
+    func cityIdError(error: Error?) {
+        interactor?.cityIdError(error: error)
     }
 }

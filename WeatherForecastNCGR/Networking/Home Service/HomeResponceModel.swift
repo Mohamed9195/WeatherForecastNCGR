@@ -8,13 +8,13 @@
 import Foundation
 
 struct HomeResponseModel: Codable {
-    let consolidatedWeather: [ConsolidatedWeather]?
-    let time, sunRise, sunSet, timezoneName: String?
-    let parent: Parent?
-    let sources: [Source]?
-    let title, locationType: String?
-    let woeid: Int?
-    let lattLong, timezone: String?
+    var consolidatedWeather: [ConsolidatedWeather]?
+    var time, sunRise, sunSet, timezoneName: String?
+    var parent: Parent?
+    var sources: [Source]?
+    var title, locationType: String?
+    var woeid: Int?
+    var lattLong, timezone: String?
 
     enum CodingKeys: String, CodingKey {
         case consolidatedWeather = "consolidated_weather"
@@ -32,14 +32,14 @@ struct HomeResponseModel: Codable {
 
 // MARK: - ConsolidatedWeather
 struct ConsolidatedWeather: Codable {
-    let id: Int?
-    let weatherStateName, weatherStateAbbr, windDirectionCompass, created: String?
-    let applicableDate: String?
-    let minTemp, maxTemp, theTemp, windSpeed: Double?
-    let windDirection, airPressure: Double?
-    let humidity: Int?
-    let visibility: Double?
-    let predictability: Int?
+    var id: Int?
+    var weatherStateName, weatherStateAbbr, windDirectionCompass, created: String?
+    var applicableDate: String?
+    var minTemp, maxTemp, theTemp, windSpeed: Double?
+    var windDirection, airPressure: Double?
+    var humidity: Int?
+    var visibility: Double?
+    var predictability: Int?
 
     enum CodingKeys: String, CodingKey {
         case id
@@ -60,9 +60,9 @@ struct ConsolidatedWeather: Codable {
 
 // MARK: - Parent
 struct Parent: Codable {
-    let title, locationType: String?
-    let woeid: Int?
-    let lattLong: String?
+    var title, locationType: String?
+    var woeid: Int?
+    var lattLong: String?
 
     enum CodingKeys: String, CodingKey {
         case title
@@ -74,12 +74,25 @@ struct Parent: Codable {
 
 // MARK: - Source
 struct Source: Codable {
-    let title, slug: String?
-    let url: String?
-    let crawlRate: Int?
+    var title, slug: String?
+    var url: String?
+    var crawlRate: Int?
 
     enum CodingKeys: String, CodingKey {
         case title, slug, url
         case crawlRate = "crawl_rate"
+    }
+}
+
+struct AddCityModel: Codable {
+    var title, locationType: String
+    var woeid: Int
+    var lattLong: String
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case locationType = "location_type"
+        case woeid
+        case lattLong = "latt_long"
     }
 }

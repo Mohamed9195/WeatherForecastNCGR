@@ -13,11 +13,13 @@ class DaysViewController: UIViewController {
     
     @IBOutlet weak var daysTableView: UITableView!
     
+    private var homeResponseModel: HomeResponseModel?
     private var daysViewModel: DaysViewModel?
     private let disposeBag = DisposeBag()
     
     // MARK: - Init
     init(homeResponseModel: HomeResponseModel) {
+        self.homeResponseModel = homeResponseModel
         daysViewModel = DaysViewModel(homeResponseModel: homeResponseModel)
         super.init(nibName: "\(DaysViewController.self)", bundle: nil)
     }
@@ -64,7 +66,7 @@ class DaysViewController: UIViewController {
         
         daysTableView.rx.modelSelected(ConsolidatedWeather.self).subscribe { [weak self] day in
             guard let self = self else { return }
-            let carModelViewController = DetailsViewController()
+            let carModelViewController = DetailsViewController(date: day.element?.applicableDate?.replacingOccurrences(of: "-", with: "/") ?? "", cityId: String(self.homeResponseModel?.woeid ?? 0))
             
             self.navigationController?.pushViewController(carModelViewController, animated: true)
         }.disposed(by: disposeBag)

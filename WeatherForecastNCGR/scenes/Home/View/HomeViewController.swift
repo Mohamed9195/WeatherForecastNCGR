@@ -6,14 +6,18 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var loaderView: UIVisualEffectView!
+    @IBOutlet weak var addNewCityButton: UIButton!
     @IBOutlet weak var weatherCityTableView: UITableView!
+    @IBOutlet weak var cityTextView: UITextField!
     
     var presenter: HomePresenterProtocol?
     var refresher: UIRefreshControl!
+    var showNewCity = false
     
     // MARK: - Init
     init() {
@@ -65,13 +69,25 @@ class HomeViewController: UIViewController {
     }
     
     /// Setup the UI
+    @IBAction func touchToAddNewCity(_ sender: Any) {
+        showNewCity = !showNewCity
+        cityTextView.isHidden = !showNewCity
+    }
+    
     private func setupUI() {
+        addNewCityButton.setTitle("", for: .normal)
         title = "weather City"
         self.refresher = UIRefreshControl()
         self.refresher.tintColor = .red
         self.refresher.addTarget(self, action: #selector(refresh), for: .valueChanged)
         self.weatherCityTableView.addSubview(refresher)
         weatherCityTableView.register(UINib(nibName: "\(HomeTableViewCell.self)", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
+        cityTextView.keyboardToolbar.doneBarButton.setTarget(self, action: #selector(doneButtonClicked))
+        cityTextView.delegate = self
+    }
+    
+    @objc func doneButtonClicked(_ sender: Any) {
+        presenter?.saveNewCity(name: cityTextView.text ?? "")
     }
     
     @objc func refresh(_ sender: AnyObject) {
@@ -80,7 +96,14 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController: HomePresenterOutputProtocol {
+extension HomeViewController: HomePresenterOutputProtocol, UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        presenter?.saveNewCity(name: cityTextView.text ?? "")
+        view.endEditing(true)
+        return true
+    }
+    
     func didGetHomeWithError(error: String?) {
         refresher.endRefreshing()
         WeatherAlert.genericErrorAlert(error: error ?? "")
@@ -88,6 +111,7 @@ extension HomeViewController: HomePresenterOutputProtocol {
     func didGetHome() {
         refresher.endRefreshing()
         weatherCityTableView.reloadData()
+        cityTextView.isHidden = true
     }
     
     func startLoader() {

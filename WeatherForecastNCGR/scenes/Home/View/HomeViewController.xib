@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="WeatherForecastNCGR" customModuleProvider="target">
             <connections>
+                <outlet property="addNewCityButton" destination="OGJ-9U-GvC" id="DJV-lA-blr"/>
+                <outlet property="cityTextView" destination="aqu-tJ-LNa" id="qnS-YL-L1O"/>
                 <outlet property="loaderView" destination="wd0-if-xNY" id="IdA-vD-ofL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="weatherCityTableView" destination="aYp-2r-0gN" id="Rxb-on-mt0"/>
@@ -31,6 +33,40 @@
                         <outlet property="delegate" destination="-1" id="s5c-6I-W1i"/>
                     </connections>
                 </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjC-2Y-fw1">
+                    <rect key="frame" x="16" y="746" width="382" height="100"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OGJ-9U-GvC">
+                            <rect key="frame" x="334" y="52" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="OmY-Ly-9X8"/>
+                                <constraint firstAttribute="height" constant="40" id="hky-Xa-HdQ"/>
+                            </constraints>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="add-1-icon--flatastic-1-iconset--custom-icon-design-0"/>
+                            <connections>
+                                <action selector="touchToAddNewCity:" destination="-1" eventType="touchUpInside" id="yon-Qk-pqk"/>
+                            </connections>
+                        </button>
+                        <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqu-tJ-LNa">
+                            <rect key="frame" x="16" y="56" width="310" height="34"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="34" id="jRE-We-FG2"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="OGJ-9U-GvC" secondAttribute="bottom" constant="8" id="T7b-Af-Xl7"/>
+                        <constraint firstItem="aqu-tJ-LNa" firstAttribute="leading" secondItem="kjC-2Y-fw1" secondAttribute="leading" constant="16" id="UXS-q3-Pd5"/>
+                        <constraint firstItem="OGJ-9U-GvC" firstAttribute="leading" secondItem="aqu-tJ-LNa" secondAttribute="trailing" constant="8" id="WZn-lk-MSW"/>
+                        <constraint firstAttribute="height" constant="100" id="Zpj-pi-jld"/>
+                        <constraint firstAttribute="trailing" secondItem="OGJ-9U-GvC" secondAttribute="trailing" constant="8" id="mfH-wP-MEo"/>
+                        <constraint firstAttribute="bottom" secondItem="aqu-tJ-LNa" secondAttribute="bottom" constant="10" id="o9z-w8-Mz4"/>
+                    </constraints>
+                </view>
                 <visualEffectView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wd0-if-xNY">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZWh-vj-fRD">
@@ -54,9 +90,12 @@
                 <constraint firstAttribute="bottom" secondItem="0v9-OH-7vd" secondAttribute="bottom" id="9Io-st-LdW"/>
                 <constraint firstItem="0v9-OH-7vd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Bhf-H6-85R"/>
                 <constraint firstItem="wd0-if-xNY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Cww-TI-8ik"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="kjC-2Y-fw1" secondAttribute="bottom" constant="16" id="F3k-CD-Xkx"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="wd0-if-xNY" secondAttribute="trailing" id="J40-Wb-Mmf"/>
                 <constraint firstItem="0v9-OH-7vd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M1u-jg-hJb"/>
                 <constraint firstItem="aYp-2r-0gN" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="M4h-JJ-1s9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kjC-2Y-fw1" secondAttribute="trailing" constant="16" id="QCl-47-4w5"/>
+                <constraint firstItem="kjC-2Y-fw1" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="TEv-Ut-5tb"/>
                 <constraint firstItem="wd0-if-xNY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dEH-AL-Uac"/>
                 <constraint firstAttribute="bottom" secondItem="wd0-if-xNY" secondAttribute="bottom" id="fHj-1Z-CCr"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aYp-2r-0gN" secondAttribute="trailing" id="ucs-7W-aSz"/>
@@ -67,6 +106,7 @@
         </view>
     </objects>
     <resources>
+        <image name="add-1-icon--flatastic-1-iconset--custom-icon-design-0" width="320" height="320"/>
         <image name="background" width="1250" height="781"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

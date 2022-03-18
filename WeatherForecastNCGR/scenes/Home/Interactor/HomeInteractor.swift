@@ -22,6 +22,10 @@ class HomeInteractor: HomeInteractorProtocol {
         remoteWorker?.getHome(cityId: cityId)
     }
     
+    func addNewCity(name: String) {
+        remoteWorker?.addNewCity(name: name)
+    }
+    
 }
 
 // MARK: - Remote Callbacks
@@ -33,5 +37,11 @@ extension HomeInteractor: HomeRemoteWorkerOutputProtocol {
     
     func didGetHome(city: HomeResponseModel) {
         presenter?.didGetHome(city: city)
+    }
+    func cityId(id: String) {
+        presenter?.cityId(id: id)
+    }
+    func cityIdError(error: Error?) {
+        presenter?.cityIdError(error: error)
     }
 }

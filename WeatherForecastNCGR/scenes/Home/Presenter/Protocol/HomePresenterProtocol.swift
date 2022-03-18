@@ -22,6 +22,7 @@ protocol HomePresenterProtocol: AnyObject {
     func getHomeWeatherCount() -> Int
     func navigatToCityDate(indexRow: Int)
     func cityIconWeather(indexRow: Int) -> String
+    func saveNewCity(name: String)
 }
 
 /// Defines the presenter callbacks to view

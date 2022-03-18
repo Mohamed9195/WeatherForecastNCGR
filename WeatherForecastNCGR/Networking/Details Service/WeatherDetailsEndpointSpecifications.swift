@@ -10,8 +10,7 @@ import Moya
 
 // MARK: - Provider Specifications
 enum WeatherDetailsEndpointSpecifications {
-    
-    case test
+    case dateDetails(cityId: String, date: String)
 }
 
 // MARK: - Provider target type
@@ -25,14 +24,14 @@ extension WeatherDetailsEndpointSpecifications: TargetType {
 
     var path: String {
         switch self {
-        case .test:
-            return ""
+        case .dateDetails(let cityId, let date):
+            return "location/\(cityId)/\(date)/"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .test:
+        case .dateDetails:
             return .get
         }
     }
@@ -40,7 +39,7 @@ extension WeatherDetailsEndpointSpecifications: TargetType {
     // header
     var headers: [String : String]? {
         switch self {
-        case .test:
+        case .dateDetails:
             return  ["" : ""]
         }
     }
@@ -53,7 +52,7 @@ extension WeatherDetailsEndpointSpecifications: TargetType {
         switch self {
 
         // send request as by parameter as query
-        case .test:
+        case .dateDetails:
             return .requestPlain
 
         }

@@ -6,30 +6,39 @@
 //
 
 import Foundation
-//
-//var cityId: String = ""
-//private let weatherDaysEndPoints = WeatherDaysEndPoints(provider: MoyaProvider<WeatherDaysEndpointSpecifications>(plugins: [CompleteUrlLoggerPlugin()]))
-//
-//let days : PublishSubject<[DayResponseModel]> = PublishSubject()
-//let error : PublishSubject<String> = PublishSubject()
-//
-//init(cityId: String) {
-//    self.cityId = cityId
-//    weatherDaysEndPoints.delegate = self
-//    
-//    InternetConnection.shared.startListening { connectionStatus in
-//        if connectionStatus == .connected {
-//            self.weatherDaysEndPoints.getDay(cityId: <#T##String#>, day: <#T##String#>)
-//        } else {
-//            self.view?.didGetHomeWithError(error: "no internet connection")
-//        }
-//    }
-//}
-//
-//func didGetDayWithError(error: Error?) {
-//    self.error.onNext(error?.localizedDescription ?? "")
-//}
-//
-//func didGetDay(city: [DayResponseModel]) {
-//    days.onNext(city)
-//}
+import RxSwift
+import RxCocoa
+import Moya
+
+class DetailsViewModel: DaysServicesDelegate {
+    
+    var cityId = ""
+    var date = ""
+    private let weatherDetailsEndPoints: WeatherDaysEndPoints = WeatherDaysEndPoints(provider: MoyaProvider<WeatherDaysEndpointSpecifications>(plugins: [CompleteUrlLoggerPlugin()]))
+    
+    let dayDetails: BehaviorSubject<[DayResponseModel]> = BehaviorSubject(value: [])
+    let error: BehaviorSubject<String> = BehaviorSubject(value: "")
+    
+    init(date: String, cityId: String) {
+        self.date = date
+        self.cityId = cityId
+        
+        weatherDetailsEndPoints.delegate = self
+    
+        InternetConnection.shared.startListening { connectionStatus in
+            if connectionStatus == .connected {
+                self.weatherDetailsEndPoints.getDay(cityId: cityId, day: date)
+            } else {
+                self.error.onNext("no internet connection")
+            }
+        }
+    }
+    
+    func didGetDayWithError(error: Error?) {
+        self.error.onNext(error?.localizedDescription ?? "")
+    }
+    
+    func didGetDay(city: [DayResponseModel]) {
+        dayDetails.onNext(city)
+    }
+}

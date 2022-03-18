@@ -11,6 +11,7 @@ import Moya
 // MARK: - Provider Specifications
 enum HomeEndpointSpecifications {
     case city(cityId: String)
+    case addCity(name: String)
 }
 
 // MARK: - Provider release url
@@ -29,12 +30,14 @@ extension HomeEndpointSpecifications: TargetType {
         switch self {
         case .city(let cityId):
             return "location/\(cityId)/"
+        case .addCity:
+            return "location/search/"
         }
     }
 
     var method: Moya.Method {
         switch self {
-        case .city:
+        case .city, .addCity:
             return .get
         }
     }
@@ -42,7 +45,7 @@ extension HomeEndpointSpecifications: TargetType {
     // header
     var headers: [String : String]? {
         switch self {
-        case .city:
+        case .city, .addCity:
             return  nil
         }
     }
@@ -56,6 +59,9 @@ extension HomeEndpointSpecifications: TargetType {
 
         case .city:
             return .requestPlain
+            
+        case .addCity(let name):
+            return .requestParameters(parameters: ["query" : name], encoding: URLEncoding.queryString)
         }
     }
 }

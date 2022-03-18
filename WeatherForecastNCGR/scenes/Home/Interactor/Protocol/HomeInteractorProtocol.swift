@@ -10,6 +10,7 @@ import Foundation
 /// Defines the interactor capabilities
 protocol HomeInteractorProtocol: AnyObject {
     func getHome(cityId: String)
+    func addNewCity(name: String)
 }
 
 //
@@ -17,4 +18,6 @@ protocol HomeInteractorProtocol: AnyObject {
 protocol HomeInteractorOutputProtocol: AnyObject {
     func didGetHomeWithError(error: Error?)
     func didGetHome(city: HomeResponseModel)
+    func cityId(id: String)
+    func cityIdError(error: Error?)
 }

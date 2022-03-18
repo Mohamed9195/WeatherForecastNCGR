@@ -55,6 +55,9 @@
 		B5898F6327E4B2280054A59C /* InternetConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F6227E4B2280054A59C /* InternetConnection.swift */; };
 		B5898F6727E4BB8A0054A59C /* DaysTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5898F6527E4BB8A0054A59C /* DaysTableViewCell.xib */; };
 		B5898F6827E4BB8A0054A59C /* DaysTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F6627E4BB8A0054A59C /* DaysTableViewCell.swift */; };
+		B5898F7727E4F7400054A59C /* WeatherDetailsResponceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F7627E4F7400054A59C /* WeatherDetailsResponceModel.swift */; };
+		B5898F7B27E4F85E0054A59C /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5898F7927E4F85E0054A59C /* DetailsTableViewCell.swift */; };
+		B5898F7C27E4F85E0054A59C /* DetailsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5898F7A27E4F85E0054A59C /* DetailsTableViewCell.xib */; };
 		E85184D89E6D17D89BF664DB /* Pods_WeatherForecastNCGRTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E390B8F8530030154DAE4C61 /* Pods_WeatherForecastNCGRTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +132,9 @@
 		B5898F6227E4B2280054A59C /* InternetConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnection.swift; sourceTree = "<group>"; };
 		B5898F6527E4BB8A0054A59C /* DaysTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DaysTableViewCell.xib; sourceTree = "<group>"; };
 		B5898F6627E4BB8A0054A59C /* DaysTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DaysTableViewCell.swift; sourceTree = "<group>"; };
+		B5898F7627E4F7400054A59C /* WeatherDetailsResponceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsResponceModel.swift; sourceTree = "<group>"; };
+		B5898F7927E4F85E0054A59C /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		B5898F7A27E4F85E0054A59C /* DetailsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsTableViewCell.xib; sourceTree = "<group>"; };
 		B6EEA4D11738E338BB9FE71D /* Pods_WeatherForecastNCGR_WeatherForecastNCGRUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherForecastNCGR_WeatherForecastNCGRUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB999348509921012F91F4B0 /* Pods-WeatherForecastNCGR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastNCGR.debug.xcconfig"; path = "Target Support Files/Pods-WeatherForecastNCGR/Pods-WeatherForecastNCGR.debug.xcconfig"; sourceTree = "<group>"; };
 		C80F467EF36F13BF38B8D18A /* Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.release.xcconfig"; path = "Target Support Files/Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests/Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +261,7 @@
 			children = (
 				B5898F0027E484A90054A59C /* WeatherDetailsEndPoints.swift */,
 				B5898F0127E484A90054A59C /* WeatherDetailsEndpointSpecifications.swift */,
+				B5898F7627E4F7400054A59C /* WeatherDetailsResponceModel.swift */,
 			);
 			path = "Details Service";
 			sourceTree = "<group>";
@@ -437,6 +444,7 @@
 		B5898F2927E484AA0054A59C /* view */ = {
 			isa = PBXGroup;
 			children = (
+				B5898F7827E4F82C0054A59C /* Sub View */,
 				B5898F2A27E484AA0054A59C /* DetailsViewController.xib */,
 				B5898F2B27E484AA0054A59C /* DetailsViewController.swift */,
 			);
@@ -503,6 +511,15 @@
 				B5898F6527E4BB8A0054A59C /* DaysTableViewCell.xib */,
 			);
 			path = "sub View";
+			sourceTree = "<group>";
+		};
+		B5898F7827E4F82C0054A59C /* Sub View */ = {
+			isa = PBXGroup;
+			children = (
+				B5898F7927E4F85E0054A59C /* DetailsTableViewCell.swift */,
+				B5898F7A27E4F85E0054A59C /* DetailsTableViewCell.xib */,
+			);
+			path = "Sub View";
 			sourceTree = "<group>";
 		};
 		C9B0EDD4302A2DF56CC887B0 /* Pods */ = {
@@ -632,6 +649,7 @@
 				B5898F6727E4BB8A0054A59C /* DaysTableViewCell.xib in Resources */,
 				B5898ED727E483CC0054A59C /* Assets.xcassets in Resources */,
 				B5898F4127E484AA0054A59C /* HomeViewController.xib in Resources */,
+				B5898F7C27E4F85E0054A59C /* DetailsTableViewCell.xib in Resources */,
 				B5898F5527E486170054A59C /* Main.storyboard in Resources */,
 				B5898F4F27E484AA0054A59C /* DaysViewController.xib in Resources */,
 				B5898F4C27E484AA0054A59C /* DetailsViewController.xib in Resources */,
@@ -763,11 +781,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5898F3E27E484AA0054A59C /* WeatherAlert.swift in Sources */,
+				B5898F7B27E4F85E0054A59C /* DetailsTableViewCell.swift in Sources */,
 				B5898F4727E484AA0054A59C /* HomeInteractor.swift in Sources */,
 				B5898F4927E484AA0054A59C /* HomeViewData.swift in Sources */,
 				B5898F5027E484AA0054A59C /* DaysViewController.swift in Sources */,
 				B5898F3727E484AA0054A59C /* WeatherDetailsEndpointSpecifications.swift in Sources */,
 				B5898F5827E486FC0054A59C /* DaysResponceModel.swift in Sources */,
+				B5898F7727E4F7400054A59C /* WeatherDetailsResponceModel.swift in Sources */,
 				B5898F3627E484AA0054A59C /* WeatherDetailsEndPoints.swift in Sources */,
 				B5898F3927E484AA0054A59C /* WeathetDaysEndPoints.swift in Sources */,
 				B5898F3B27E484AA0054A59C /* HomeEndPoints.swift in Sources */,
@@ -1098,6 +1118,136 @@
 			};
 			name = Release;
 		};
+		B5898F7227E4F3540054A59C /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Test;
+		};
+		B5898F7327E4F3540054A59C /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB999348509921012F91F4B0 /* Pods-WeatherForecastNCGR.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62F9LK6975;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = WeatherForecastNCGR/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MH.WeatherForecastNCGR;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Test;
+		};
+		B5898F7427E4F3540054A59C /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8C9FABDB4AB139F22248911 /* Pods-WeatherForecastNCGRTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62F9LK6975;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MH.WeatherForecastNCGRTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WeatherForecastNCGR.app/WeatherForecastNCGR";
+			};
+			name = Test;
+		};
+		B5898F7527E4F3540054A59C /* Test */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4C2038613973427AB6AD8B6 /* Pods-WeatherForecastNCGR-WeatherForecastNCGRUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 62F9LK6975;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = MH.WeatherForecastNCGRUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WeatherForecastNCGR;
+			};
+			name = Test;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1105,6 +1255,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5898EF227E483CC0054A59C /* Debug */,
+				B5898F7227E4F3540054A59C /* Test */,
 				B5898EF327E483CC0054A59C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1114,6 +1265,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5898EF527E483CC0054A59C /* Debug */,
+				B5898F7327E4F3540054A59C /* Test */,
 				B5898EF627E483CC0054A59C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1123,6 +1275,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5898EF827E483CC0054A59C /* Debug */,
+				B5898F7427E4F3540054A59C /* Test */,
 				B5898EF927E483CC0054A59C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1132,6 +1285,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5898EFB27E483CC0054A59C /* Debug */,
+				B5898F7527E4F3540054A59C /* Test */,
 				B5898EFC27E483CC0054A59C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
