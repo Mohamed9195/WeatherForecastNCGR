@@ -55,6 +55,9 @@ class HomeViewController: UIViewController {
         // Do any additional setup after displaying the view.
         
         presenter?.viewDidAppear()
+        if let object = Bundle.main.infoDictionary?["DEFAULT_BASE_URL"] as? String {
+           print("eeeee", object)
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -110,7 +113,7 @@ extension HomeViewController: HomePresenterOutputProtocol, UITextFieldDelegate {
     
     func didGetHomeWithError(error: String?) {
         refresher.endRefreshing()
-        WeatherAlert.genericErrorAlert(error: error ?? "")
+        WeatherAlert.genericErrorAlert(error: error ?? "").show(in: self)
     }
     func didGetHome() {
         refresher.endRefreshing()

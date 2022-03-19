@@ -6,6 +6,8 @@
 	<dict>
 		<key>DEVWeatherForecastNCGR.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
@@ -16,13 +18,27 @@
 		</dict>
 		<key>TestWeatherForecastNCGR.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<false/>
 			<key>orderHint</key>
 			<integer>15</integer>
+		</dict>
+		<key>WeatherForecastNCGR copy.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>18</integer>
 		</dict>
 		<key>WeatherForecastNCGR.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>14</integer>
+		</dict>
+		<key>WeatherForecastNCGRTest.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
@@ -38,6 +54,11 @@
 			<true/>
 		</dict>
 		<key>B5898EE927E483CC0054A59C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B5CC8ED627E5AA8F00071C69</key>
 		<dict>
 			<key>primary</key>
 			<true/>

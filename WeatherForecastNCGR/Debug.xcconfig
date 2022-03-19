@@ -1,0 +1,10 @@
+//
+//  Debug.xcconfig
+//  WeatherForecastNCGR
+//
+//  Created by Mohamed Hashem on 19/03/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+DEFAULT_BASE_URL = Welcome.in.Debug

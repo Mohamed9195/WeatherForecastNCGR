@@ -17,6 +17,7 @@ class HomePresenter: HomePresenterProtocol {
     var viewData: HomeViewData?
     private var homeWeathers: [HomeResponseModel]? = []
     private var cityNames: Set<CityName> = [.cairo]
+    private var allCityId: [String] = []
     /// Initialize the presenter with the required parameters to work properly
     /// - Parameters:
     ///   - interactor: The interactor for retrieving the data locally or remotely
@@ -33,15 +34,16 @@ class HomePresenter: HomePresenterProtocol {
     }
     
     func viewWillAppear() {
-        homeWeathers?.removeAll()
-        cityNames.removeAll()
-        cityNames.insert(.cairo)
+        self.loadAllCity()
         self.view?.startLoader()
         self.view?.reloadView()
         
         InternetConnection.shared.startListening { connectionStatus in
             if connectionStatus == .connected {
-                self.interactor?.getHome(cityId: CityName.cairo.rawValue)
+                self.allCityId.forEach { city in
+                    self.interactor?.getHome(cityId: city)
+                }
+                
             } else {
                 self.view?.stopLoader()
                 if let cachedModel = DefaultHomeModelManger().get() as? [HomeResponseModel] {
@@ -54,10 +56,27 @@ class HomePresenter: HomePresenterProtocol {
         }
     }
     
+    private func loadAllCity() {
+        homeWeathers?.removeAll()
+        cityNames.removeAll()
+        allCityId.removeAll()
+        
+        allCityId.append(CityName.cairo.rawValue)
+        allCityId.append(CityName.riyadh.rawValue)
+        allCityId.append(CityName.nY.rawValue)
+        
+        if let cachedCity = getCachedCity() {
+            cachedCity.forEach { cityId in
+                self.allCityId.append(cityId)
+            }
+        }
+    }
+    
     func viewDidAppear() {
     }
     
     func viewWillDisappear() {
+        homeWeathers != nil ? DefaultHomeModelManger().save(file: homeWeathers! as [HomeResponseModel]) : ()
     }
     
     // MARK: - View Methods
@@ -115,36 +134,9 @@ extension HomePresenter: HomeInteractorOutputProtocol {
     }
     
     func didGetHome(city: HomeResponseModel) {
-        
-        switch cityNames.count {
-        case 1:
-            self.cityNames.insert(.nY)
-            homeWeathers?.append(city)
-            interactor?.getHome(cityId: CityName.nY.rawValue)
-        case 2:
-            self.cityNames.insert(.riyadh)
-            homeWeathers?.append(city)
-            interactor?.getHome(cityId: CityName.riyadh.rawValue)
-        case 3:
-            if let cachedCity = getCachedCity() {
-                homeWeathers?.append(city)
-                cachedCity.forEach { cityId in
-                    self.cityNames.insert(.other)
-                    interactor?.getHome(cityId: cityId)
-                }
-            } else {
-                homeWeathers?.append(city)
-                view?.stopLoader()
-                view?.didGetHome()
-                homeWeathers != nil ? DefaultHomeModelManger().save(file: homeWeathers! as [HomeResponseModel]) : ()
-            }
-            
-        default:
-            homeWeathers?.append(city)
-            view?.stopLoader()
-            view?.didGetHome()
-            homeWeathers != nil ? DefaultHomeModelManger().save(file: homeWeathers! as [HomeResponseModel]) : ()
-        }
+        homeWeathers?.append(city)
+        view?.stopLoader()
+        view?.didGetHome()
     }
     
     func cityId(id: String) {
@@ -154,10 +146,14 @@ extension HomePresenter: HomeInteractorOutputProtocol {
                 oldCity.append(id)
                 DefaultCityModelManger().setNewCity(city: oldCity)
                 viewWillAppear()
+            } else {
+                view?.didGetHomeWithError(error: "can not found city")
             }
-        } else if id != "0"  {
+        } else if id != "0" {
             DefaultCityModelManger().setNewCity(city: [id])
             viewWillAppear()
+        } else {
+            view?.didGetHomeWithError(error: "can not found city")
         }
     }
     
